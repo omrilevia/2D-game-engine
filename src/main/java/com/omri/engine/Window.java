@@ -16,15 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
+
 public class Window {
 	private int width, height;
 	private String title;
 	private static Window window = null;
 	private long glfwWindow;
+	
+	private float r, g, b, a;
+	
 	private Window() {
 		this.width = 1920;
 		this.height = 1080;
 		this.title = "Mario";
+		r = 1.0f;
+		g = 1.0f;
+		b = 1.0f;
+		a = 1.0f;
 	}
 	
 	public static Window get() {
@@ -39,6 +47,14 @@ public class Window {
 		System.out.println("Hello LWJGL " + Version.getVersion() + "!");
 		init();
 		loop();
+		
+		// Free memory
+		glfwFreeCallbacks(glfwWindow);
+		glfwDestroyWindow(glfwWindow);
+		
+		// Terminate GLFW and free the error callback
+		glfwTerminate();
+		glfwSetErrorCallback(null).free();
 	}
 
 	public void loop() {
@@ -46,8 +62,10 @@ public class Window {
 			// poll events
 			glfwPollEvents();
 			
-			glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+			glClearColor(r, g, b, a);
 			glClear(GL_COLOR_BUFFER_BIT);
+			
+			
 			
 			glfwSwapBuffers(glfwWindow);
 		}
@@ -68,10 +86,20 @@ public class Window {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 		glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 		
+		
+		// create window
 		glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
 		if(glfwWindow == NULL) {
 			throw new IllegalStateException("Failed to create the GLFW window.");
 		}
+		
+		// set mouse callbacks
+		glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+		glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+		glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+		
+		//set key callbacks
+		glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
 		
 		// make openGL context current
 		glfwMakeContextCurrent(glfwWindow);
