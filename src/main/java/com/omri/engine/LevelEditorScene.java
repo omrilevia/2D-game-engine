@@ -12,6 +12,7 @@ import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
 import com.omri.renderer.Shader;
+import com.omri.util.Time;
 public class LevelEditorScene extends Scene{
 	private String vertexShaderSrc = "#version 330 core\r\n"
 			+ "\r\n"
@@ -104,12 +105,14 @@ public class LevelEditorScene extends Scene{
 
 	@Override
 	public void update(float dt) {
-		camera.position.x -= dt * 50.0f;
+		camera.position.x -= dt * 30.0f;
+		camera.position.y -= dt* 30.0f;
 		// Bind shader program
 		defaultShader.use();
 		
 		defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
 		defaultShader.uploadMat4f("uView", camera.getViewMatrix());
+		defaultShader.uploadFloat("uTime", Time.getTime());
 		
 		// Bind vao that we're using
 		glBindVertexArray(vaoID);
