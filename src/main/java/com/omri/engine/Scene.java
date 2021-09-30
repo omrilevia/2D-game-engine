@@ -1,7 +1,11 @@
 package com.omri.engine;
 
 public abstract class Scene {
+	
+	protected Camera camera;
 	public Scene() {
+		
+		
 		
 	}
 	
