@@ -44,15 +44,18 @@ public class Window {
 		switch(newScene) {
 		case 0:
 			currentScene = new LevelEditorScene();
-			//currentScene.init();
+			
 			break;
 		case 1:
 			currentScene = new LevelScene();
+			
 			break;
 		default:
 			assert false : "Unknown scene " + newScene;
 			break;
 		}
+		
+		currentScene.init();
 	}
 	
 	public static Window get() {
@@ -87,6 +90,7 @@ public class Window {
 			
 			glClearColor(r, g, b, a);
 			glClear(GL_COLOR_BUFFER_BIT);
+			
 			if(dt >= 0)
 				currentScene.update(dt);
 			
