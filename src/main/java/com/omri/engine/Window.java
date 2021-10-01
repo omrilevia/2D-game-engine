@@ -55,7 +55,8 @@ public class Window {
 			break;
 		}
 		
-		currentScene.init();
+		currentScene.init(); 
+		currentScene.start();
 	}
 	
 	public static Window get() {

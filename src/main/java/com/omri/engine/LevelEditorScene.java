@@ -11,6 +11,8 @@ import java.nio.IntBuffer;
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
+import com.omri.components.FontRenderer;
+import com.omri.components.SpriteRenderer;
 import com.omri.renderer.Shader;
 import com.omri.renderer.Texture;
 import com.omri.util.Time;
@@ -64,17 +66,25 @@ public class LevelEditorScene extends Scene{
 	
 	private Texture testTexture;
 	
+	GameObject testObj;
+	private boolean firstTime = true;;
+	
 	public LevelEditorScene() {
 		
 	}
 	
 	@Override
 	public void init() {
+		System.out.println("Creating test obj");
+		this.testObj = new GameObject("test object");
+		this.testObj.addComponent(new SpriteRenderer());
+		this.testObj.addComponent(new FontRenderer());
+		this.addGameObjectToScene(this.testObj);
 		this.camera = new Camera(new Vector2f());
 		defaultShader = new Shader("assets/shaders/default.glsl");
 		defaultShader.compile();
 		
-		this.testTexture = new Texture("assets/images/testImage.jpg");
+		this.testTexture = new Texture("assets/images/testImage.png");
 		
 		// Generate VAO (vertex attribute), vbo (vertex buffer), ebo (element buffer) objects, and send to GPU
 		vaoID = glGenVertexArrays();
@@ -146,5 +156,17 @@ public class LevelEditorScene extends Scene{
 		
 		glBindVertexArray(0);
 		defaultShader.detach();
+		
+		if(firstTime) {
+			System.out.println("creating game object 2");
+		GameObject go2 = new GameObject("Game test 2");
+		go2.addComponent(new SpriteRenderer());
+		this.addGameObjectToScene(go2);
+		firstTime = false;
+		}
+		
+		for(GameObject go : this.gameObjects) {
+			go.update(dt);
+		}
 	}
 }
