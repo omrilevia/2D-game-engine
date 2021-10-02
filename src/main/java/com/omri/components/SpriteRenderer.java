@@ -1,21 +1,28 @@
 package com.omri.components;
 
+import org.joml.Vector4f;
+
 import com.omri.engine.Component;
 
 public class SpriteRenderer extends Component{
-	boolean firstTime = true;
+	private Vector4f color;
+	
+	public  SpriteRenderer(Vector4f color) {
+		this.color = color;
+	}
 	@Override
 	public void start() {
-		System.out.println("I'm starting!");
+		
 	}
 
 	@Override
 	public void update(float dt) {
-		if(firstTime)
-		System.out.println("I'm updating!");
 		
-		firstTime = false;
 		
+	}
+	
+	public Vector4f getColor() {
+		return this.color;
 	}
 
 }
