@@ -9,6 +9,7 @@ import org.joml.Vector4f;
 
 import com.omri.components.SpriteRenderer;
 import com.omri.engine.Window;
+import com.omri.util.AssetPool;
 
 public class RenderBatch {
 	
@@ -35,8 +36,8 @@ public class RenderBatch {
 	private Shader shader;
 	
 	public RenderBatch(int maxBatchSize) {
-		shader = new Shader("assets/shaders/default.glsl");
-		shader.compile();
+		
+		shader = AssetPool.getShader("assets/shaders/default.glsl");
 		this.sprites = new SpriteRenderer[maxBatchSize];
 		this.maxBatchSize = maxBatchSize;
 		
