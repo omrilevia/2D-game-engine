@@ -3,12 +3,13 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.omri.components.Spritesheet;
 import com.omri.renderer.Shader;
 import com.omri.renderer.Texture;
 public class AssetPool {
 	private static Map<String, Shader> shaders = new HashMap<>();
 	private static Map<String, Texture> textures = new HashMap<>();
-	
+	private static Map<String, Spritesheet> spritesheets = new HashMap<>();
 	public static Shader getShader(String resourceName) {
 		File file = new File(resourceName);
 		if(shaders.containsKey(file.getAbsolutePath())) {
@@ -33,6 +34,22 @@ public class AssetPool {
 			return texture;
 		}
 		
+	}
+	
+	public static void addSpriteSheet(String resourceName, Spritesheet spritesheet) {
+		File file = new File(resourceName);
+		if(!AssetPool.spritesheets.containsKey(file.getAbsolutePath())) {
+			AssetPool.spritesheets.put(file.getAbsolutePath(), spritesheet);
+		}
+		
+	}
+	
+	public static Spritesheet getSpriteSheet(String resourceName) {
+		File file = new File(resourceName);
+		if(!AssetPool.spritesheets.containsKey(file.getAbsolutePath())) {
+			assert false : "Error: tried to access spritesheet that has not been added " + resourceName;
+		}
+		return AssetPool.spritesheets.getOrDefault(file.getAbsolutePath(), null);
 	}
 	
 	
