@@ -15,7 +15,7 @@ import com.omri.components.SpriteRenderer;
 import com.omri.engine.Window;
 import com.omri.util.AssetPool;
 
-public class RenderBatch {
+public class RenderBatch implements Comparable<RenderBatch>{
 	
 	// Vertex
 	// =====
@@ -46,13 +46,14 @@ public class RenderBatch {
 	private int vaoID, vboID;
 	private int maxBatchSize;
 	private Shader shader;
+	private int zIndex;
 	
-	public RenderBatch(int maxBatchSize) {
+	public RenderBatch(int maxBatchSize, int zIndex) {
 		
 		shader = AssetPool.getShader("assets/shaders/default.glsl");
 		this.sprites = new SpriteRenderer[maxBatchSize];
 		this.maxBatchSize = maxBatchSize;
-		
+		this.zIndex = zIndex;
 		// 4 vertices quads
 		vertices = new float[maxBatchSize * 4 * VERTEX_SIZE];
 		this.numSprites = 0;
@@ -111,6 +112,10 @@ public class RenderBatch {
 		if(numSprites >= this.maxBatchSize) {
 			this.hasRoom = false;
 		}
+	}
+	
+	public int zIndex() {
+		return this.zIndex;
 	}
 	
 	public void render() {
@@ -253,6 +258,11 @@ public class RenderBatch {
 		elements[offsetArrayIndex + 3] = offset + 0;
 		elements[offsetArrayIndex + 4] = offset + 2;
 		elements[offsetArrayIndex + 5] = offset + 1;
+	}
+
+	@Override
+	public int compareTo(RenderBatch o) {
+		return Integer.compare(this.zIndex, o.zIndex);
 	}
 
 }
