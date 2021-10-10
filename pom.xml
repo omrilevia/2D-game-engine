@@ -20,9 +20,29 @@
 			<type>pom</type>
 		</dependency>
 	</dependencies>
+	
+	
 </dependencyManagement>
 
 <dependencies>
+
+	<dependency>
+			<groupId>io.imgui.java</groupId>
+			<artifactId>binding</artifactId>
+			<version>1.76-0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>io.imgui.java</groupId>
+			<artifactId>lwjgl3</artifactId>
+			<version>1.76-0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>io.imgui.java</groupId>
+			<artifactId>natives-windows</artifactId>
+			<version>1.76-0.9</version>
+		</dependency>
+
+
 	<dependency>
 		<groupId>org.lwjgl</groupId>
 		<artifactId>lwjgl</artifactId>
@@ -83,4 +103,12 @@
 		<version>${joml.version}</version>
 	</dependency>
 </dependencies>
+<repositories>
+		<repository>
+			<id>central</id>
+			<name>bintray-plugins</name>
+			<url>https://jcenter.bintray.com</url>
+		</repository>
+
+	</repositories>
 </project>
