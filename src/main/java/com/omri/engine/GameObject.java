@@ -67,4 +67,10 @@ public class GameObject {
 			components.get(i).start();
 		}
 	}
+	
+	public void imgui() {
+		for(Component c : components) {
+			c.imgui();
+		}
+	}
 }

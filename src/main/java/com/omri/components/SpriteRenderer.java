@@ -7,6 +7,8 @@ import com.omri.engine.Component;
 import com.omri.engine.Transform;
 import com.omri.renderer.Texture;
 
+import imgui.ImGui;
+
 public class SpriteRenderer extends Component{
 	private Sprite sprite;
 	private Vector4f color;
@@ -48,6 +50,16 @@ public class SpriteRenderer extends Component{
 		
 		//else isDirty = false;
 		
+	}
+	
+	@Override
+	public void imgui() {
+		//ImGui.text("Color Picker: ");
+		float[] imColor = {color.x, color.y, color.z, color.w};
+		if(ImGui.colorPicker4("Color picker: ", imColor)) {
+			this.color.set(imColor[0], imColor[1], imColor[2], imColor[3]);
+			this.isDirty = true;
+		}
 	}
 	
 	public Vector4f getColor() {

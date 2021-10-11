@@ -1,11 +1,14 @@
 package com.omri.engine;
 
 import org.joml.Vector2f;
+import org.joml.Vector4f;
 
 import com.omri.components.Sprite;
 import com.omri.components.SpriteRenderer;
 import com.omri.components.Spritesheet;
 import com.omri.util.AssetPool;
+
+import imgui.ImGui;
 public class LevelEditorScene extends Scene{
 	private GameObject obj1, obj2;
 	private int spriteIndex = 0;
@@ -24,8 +27,9 @@ public class LevelEditorScene extends Scene{
 		sprites = AssetPool.getSpriteSheet("assets/images/spritesheet.png");
 		
 		obj1 = new GameObject("object1", new Transform(new Vector2f(200,100), new Vector2f(256, 256)), 4);
-		obj1.addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture("assets/images/blendImage1.png"))));
+		obj1.addComponent(new SpriteRenderer(new Vector4f(1,0,0,1)));
 		this.addGameObjectToScene(obj1);
+		this.activeGameObject = obj1;
 		
 		obj2 = new GameObject("object2", new Transform(new Vector2f(400,100), new Vector2f(256, 256)), 5);
 		obj2.addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture("assets/images/blendImage2.png"))));
@@ -48,5 +52,12 @@ public class LevelEditorScene extends Scene{
 		}
 		
 		this.renderer.render();
+	}
+	
+	@Override
+	public void imgui() {
+		ImGui.begin("test window");
+		ImGui.text("some text");
+		ImGui.end();
 	}
 }
