@@ -3,6 +3,8 @@ package com.omri.engine;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.omri.components.Sprite;
 import com.omri.components.SpriteRenderer;
 import com.omri.components.Spritesheet;
@@ -25,16 +27,26 @@ public class LevelEditorScene extends Scene{
 		this.camera = new Camera(new Vector2f());
 		
 		sprites = AssetPool.getSpriteSheet("assets/images/spritesheet.png");
-		
-		obj1 = new GameObject("object1", new Transform(new Vector2f(200,100), new Vector2f(256, 256)), 4);
-		obj1.addComponent(new SpriteRenderer(new Vector4f(1,0,0,1)));
+		SpriteRenderer obj1Renderer = new SpriteRenderer();
+		obj1Renderer.setColor(new Vector4f(1, 0, 0, 1));
+		obj1 = new GameObject("object1", new Transform(new Vector2f(200,200), new Vector2f(256, 256)), 4);
+		obj1.addComponent(obj1Renderer);
 		this.addGameObjectToScene(obj1);
 		this.activeGameObject = obj1;
 		
 		obj2 = new GameObject("object2", new Transform(new Vector2f(400,100), new Vector2f(256, 256)), 5);
-		obj2.addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture("assets/images/blendImage2.png"))));
+		SpriteRenderer obj2reRenderer = new SpriteRenderer();
+		Sprite obj2Sprite = new Sprite();
+		obj2Sprite.setTexture(AssetPool.getTexture("assets/images/blendImage2.png"));
+		obj2reRenderer.setSprite(obj2Sprite);
+		
+		
+		obj2.addComponent(obj2reRenderer);
 		this.addGameObjectToScene(obj2);
 		//loadResources();
+		
+		
+		
 		
 	}
 	

@@ -10,8 +10,8 @@ import com.omri.renderer.Texture;
 import imgui.ImGui;
 
 public class SpriteRenderer extends Component{
-	private Sprite sprite;
-	private Vector4f color;
+	private Sprite sprite = new Sprite();
+	private Vector4f color = new Vector4f(1,1,1,1);
 	
 	/*
 	 * (0,1)
@@ -20,21 +20,21 @@ public class SpriteRenderer extends Component{
 	 * (1,0)
 	 */
 	
-	private Transform lastTransform;
-	private boolean isDirty = false;
+	private transient Transform lastTransform;
+	private transient boolean isDirty = false;
 	
-	public  SpriteRenderer(Vector4f color) {
-		this.color = color;
-		this.sprite = new Sprite(null);
-		this.isDirty = true;
-		
-	}
-	
-	public SpriteRenderer(Sprite sprite) {
-		this.sprite = sprite;
-		this.color = new Vector4f(1,1,1,1);
-		this.isDirty = true;
-	}
+//	public  SpriteRenderer(Vector4f color) {
+//		this.color = color;
+//		this.sprite = new Sprite(null);
+//		this.isDirty = true;
+//		
+//	}
+//	
+//	public SpriteRenderer(Sprite sprite) {
+//		this.sprite = sprite;
+//		this.color = new Vector4f(1,1,1,1);
+//		this.isDirty = true;
+//	}
 	
 	@Override
 	public void start() {
@@ -81,7 +81,7 @@ public class SpriteRenderer extends Component{
 	}
 	
 	public void setColor(Vector4f color) {
-		this.color.set(color);
+		//this.color.set(color);
 		if(!this.color.equals(color)) {
 			this.isDirty = true;
 			this.color.set(color);
