@@ -5,6 +5,7 @@ import org.joml.Vector4f;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.omri.components.RigidBody;
 import com.omri.components.Sprite;
 import com.omri.components.SpriteRenderer;
 import com.omri.components.Spritesheet;
@@ -26,6 +27,7 @@ public class LevelEditorScene extends Scene{
 		loadResources();
 		this.camera = new Camera(new Vector2f());
 		if(levelLoaded) {
+			this.activeGameObject = gameObjects.get(0);
 			return;
 		}
 		sprites = AssetPool.getSpriteSheet("assets/images/spritesheet.png");
@@ -33,6 +35,7 @@ public class LevelEditorScene extends Scene{
 		obj1Renderer.setColor(new Vector4f(1, 0, 0, 1));
 		obj1 = new GameObject("object1", new Transform(new Vector2f(200,200), new Vector2f(256, 256)), 4);
 		obj1.addComponent(obj1Renderer);
+		obj1.addComponent(new RigidBody());
 		this.addGameObjectToScene(obj1);
 		this.activeGameObject = obj1;
 		
@@ -54,6 +57,7 @@ public class LevelEditorScene extends Scene{
 	
 	private void loadResources() {
 		AssetPool.getShader("assets/shaders/default.glsl");
+		AssetPool.getTexture("assets/images/blendImage2.png");
 		AssetPool.addSpriteSheet("assets/images/spritesheet.png", new Spritesheet(AssetPool.getTexture("assets/images/spritesheet.png"), 16, 16, 26, 0));
 		
 	}

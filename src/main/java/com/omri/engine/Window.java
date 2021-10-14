@@ -54,7 +54,7 @@ public class Window {
 			assert false : "Unknown scene " + newScene;
 			break;
 		}
-		
+		currentScene.load();
 		currentScene.init(); 
 		currentScene.start();
 	}
@@ -89,7 +89,7 @@ public class Window {
 		float beginTime = (float)glfwGetTime();
 		float endTime = (float)glfwGetTime();
 		float dt = -1.0f;
-		currentScene.load();
+		
 		while(!glfwWindowShouldClose(glfwWindow)) {
 			//System.out.println(1.0/dt);
 			// poll events
