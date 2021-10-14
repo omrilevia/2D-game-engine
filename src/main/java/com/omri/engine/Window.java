@@ -89,6 +89,7 @@ public class Window {
 		float beginTime = (float)glfwGetTime();
 		float endTime = (float)glfwGetTime();
 		float dt = -1.0f;
+		currentScene.load();
 		while(!glfwWindowShouldClose(glfwWindow)) {
 			//System.out.println(1.0/dt);
 			// poll events
@@ -109,6 +110,7 @@ public class Window {
 			
 		}
 		
+		currentScene.saveExit();
 		
 	}
 

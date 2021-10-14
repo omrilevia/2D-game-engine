@@ -25,7 +25,9 @@ public class LevelEditorScene extends Scene{
 	public void init() {
 		loadResources();
 		this.camera = new Camera(new Vector2f());
-		
+		if(levelLoaded) {
+			return;
+		}
 		sprites = AssetPool.getSpriteSheet("assets/images/spritesheet.png");
 		SpriteRenderer obj1Renderer = new SpriteRenderer();
 		obj1Renderer.setColor(new Vector4f(1, 0, 0, 1));
