@@ -6,6 +6,8 @@
         "type": "com.omri.components.SpriteRenderer",
         "properties": {
           "sprite": {
+            "width": 0.0,
+            "height": 0.0,
             "texCoords": [
               {
                 "x": 1.0,
@@ -26,9 +28,9 @@
             ]
           },
           "color": {
-            "x": 0.6063158,
-            "y": 0.122539625,
-            "z": 0.122539625,
+            "x": 0.23088989,
+            "y": 0.123541266,
+            "z": 0.7621052,
             "w": 1.0
           }
         }
@@ -71,6 +73,8 @@
               "width": 256,
               "height": 256
             },
+            "width": 0.0,
+            "height": 0.0,
             "texCoords": [
               {
                 "x": 1.0,
