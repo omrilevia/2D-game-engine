@@ -3,6 +3,8 @@ package com.omri.engine;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.omri.components.Component;
+
 public class GameObject {
 	private String name;
 	private List<Component> components;

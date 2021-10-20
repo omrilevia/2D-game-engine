@@ -1,10 +1,12 @@
-package com.omri.engine;
+package com.omri.components;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 import org.joml.Vector3f;
 import org.joml.Vector4f;
+
+import com.omri.engine.GameObject;
 
 import imgui.ImGui;
 

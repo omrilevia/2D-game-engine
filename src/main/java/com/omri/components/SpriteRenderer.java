@@ -3,7 +3,6 @@ package com.omri.components;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
-import com.omri.engine.Component;
 import com.omri.engine.Transform;
 import com.omri.renderer.Texture;
 

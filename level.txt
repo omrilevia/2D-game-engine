@@ -28,9 +28,9 @@
             ]
           },
           "color": {
-            "x": 0.23088989,
-            "y": 0.123541266,
-            "z": 0.7621052,
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0,
             "w": 1.0
           }
         }
@@ -38,12 +38,12 @@
       {
         "type": "com.omri.components.RigidBody",
         "properties": {
-          "colliderType": 793,
-          "friction": -122.2,
+          "colliderType": 0,
+          "friction": 0.8,
           "velocity": {
-            "x": -78.0,
+            "x": 0.0,
             "y": 0.5,
-            "z": 105.0
+            "z": 0.0
           }
         }
       }
@@ -69,7 +69,7 @@
           "sprite": {
             "texture": {
               "filePath": "assets/images/blendImage2.png",
-              "texID": 3,
+              "texID": 2,
               "width": 256,
               "height": 256
             },
@@ -112,6 +112,941 @@
       "scale": {
         "x": 256.0,
         "y": 256.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 0.5833333
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.5
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.5
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.5833333
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": -100.0,
+        "y": 444.69623
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.85714287,
+                "y": 0.41666666
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.33333334
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.33333334
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.41666666
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 162.66666,
+        "y": 401.74637
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.14285715,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.083333336
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 988.0,
+        "y": 672.00006
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 0.16666667
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.16666667
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": -26.0,
+        "y": 551.7405
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.85714287,
+                "y": 0.8333333
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.75
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.75
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.8333333
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": -76.66666,
+        "y": 523.3275
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 0.5833333
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.5
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.5
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.5833333
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 993.3334,
+        "y": 669.357
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.8333333
+              },
+              {
+                "x": 1.0,
+                "y": 0.75
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.75
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.8333333
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": -80.0,
+        "y": 305.27435
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.42857143,
+                "y": 0.75
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.6666667
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.6666667
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.75
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": -16.0,
+        "y": 304.6136
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.42857143,
+                "y": 0.5
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.41666666
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.41666666
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.5
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 104.0,
+        "y": 246.4661
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.0,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 202.66666,
+        "y": 490.9499
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.0,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 267.3333,
+        "y": 491.6107
+      },
+      "scale": {
+        "x": 64.0,
+        "y": 64.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.5714286,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.5714286,
+                "y": 0.0
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.0
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.083333336
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 572.6667,
+        "y": 405.0502
+      },
+      "scale": {
+        "x": 32.0,
+        "y": 32.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.42857143,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.083333336
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 604.0,
+        "y": 405.0502
+      },
+      "scale": {
+        "x": 32.0,
+        "y": 32.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.42857143,
+                "y": 0.5
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.41666666
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.41666666
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.5
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 636.0,
+        "y": 405.0502
+      },
+      "scale": {
+        "x": 32.0,
+        "y": 32.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 0.71428573,
+                "y": 0.75
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.6666667
+              },
+              {
+                "x": 0.5714286,
+                "y": 0.6666667
+              },
+              {
+                "x": 0.5714286,
+                "y": 0.75
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 75.33334,
+        "y": 398.4425
+      },
+      "scale": {
+        "x": 32.0,
+        "y": 32.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.75
+              },
+              {
+                "x": 1.0,
+                "y": 0.6666667
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.6666667
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.75
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 93.33334,
+        "y": 362.76108
+      },
+      "scale": {
+        "x": 32.0,
+        "y": 32.0
+      }
+    }
+  },
+  {
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "com.omri.components.SpriteRenderer",
+        "properties": {
+          "sprite": {
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "texID": 3,
+              "width": 112,
+              "height": 192
+            },
+            "width": 16.0,
+            "height": 16.0,
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.6666667
+              },
+              {
+                "x": 1.0,
+                "y": 0.5833333
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.5833333
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.6666667
+              }
+            ]
+          },
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          }
+        }
+      }
+    ],
+    "zIndex": 0,
+    "transform": {
+      "position": {
+        "x": 852.0,
+        "y": 329.72275
+      },
+      "scale": {
+        "x": 32.0,
+        "y": 32.0
       }
     }
   }

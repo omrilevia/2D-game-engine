@@ -1,7 +1,5 @@
 package com.omri.components;
 
-import com.omri.engine.Component;
-
 public class FontRenderer extends Component{
 	
 	

@@ -5,6 +5,10 @@ import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
+import com.omri.scenes.LevelEditorScene;
+import com.omri.scenes.LevelScene;
+import com.omri.scenes.Scene;
+
 import java.nio.*;
 
 import static org.lwjgl.glfw.Callbacks.*;

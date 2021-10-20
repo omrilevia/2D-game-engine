@@ -1,4 +1,4 @@
-package com.omri.engine;
+package com.omri.scenes;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,6 +9,11 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.omri.components.Component;
+import com.omri.components.ComponentDeserializer;
+import com.omri.engine.Camera;
+import com.omri.engine.GameObject;
+import com.omri.engine.GameObjectDeserializer;
 import com.omri.renderer.Renderer;
 
 import imgui.ImGui;

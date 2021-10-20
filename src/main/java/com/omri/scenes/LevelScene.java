@@ -1,4 +1,6 @@
-package com.omri.engine;
+package com.omri.scenes;
+
+import com.omri.engine.Window;
 
 public class LevelScene extends Scene{
 	

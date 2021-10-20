@@ -1,22 +1,26 @@
-package com.omri.engine;
+package com.omri.scenes;
 
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
+import com.omri.components.MouseControls;
 import com.omri.components.RigidBody;
 import com.omri.components.Sprite;
 import com.omri.components.SpriteRenderer;
 import com.omri.components.Spritesheet;
+import com.omri.engine.Camera;
+import com.omri.engine.GameObject;
+import com.omri.engine.Prefabs;
+import com.omri.engine.Transform;
 import com.omri.util.AssetPool;
 
 import imgui.ImGui;
 import imgui.ImVec2;
 public class LevelEditorScene extends Scene{
 	private GameObject obj1, obj2;
-	private int spriteIndex = 0;
-	private float spriteFlipTime = 0.2f;
-	private float spriteFlipTimeLeft = 0.0f;
+	
 	private Spritesheet sprites;
+	MouseControls mouseControls = new MouseControls();
 	public LevelEditorScene() {
 		
 	}
@@ -65,7 +69,7 @@ public class LevelEditorScene extends Scene{
 
 	@Override
 	public void update(float dt) {
-		
+		mouseControls.update(dt);
 		for(GameObject go : this.gameObjects) {
 			go.update(dt);
 		}
@@ -87,14 +91,17 @@ public class LevelEditorScene extends Scene{
 		float windowX2 = windowPos.x + windowSize.x;
 		for(int i = 0; i < sprites.size(); i++) {
 			Sprite sprite = sprites.getSprite(i);
-			float spriteWidth = sprite.getWidth() * 4;
-			float spriteHeight = sprite.getHeight() * 4;
+			float spriteWidth = sprite.getWidth() * 2;
+			float spriteHeight = sprite.getHeight() * 2;
 			int id = sprite.getTexId();
 			Vector2f[] texCoords = sprite.getTexCoords();
 			
 			ImGui.pushID(i);
 			if(ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-				System.out.println("Button " + i + " clicked");
+				GameObject object = Prefabs.generateSpriteObject(sprite, spriteWidth, spriteHeight);
+				// attach to mouse cursor
+				mouseControls.pickupObject(object);
+				
 			}
 			ImGui.popID();
 			
