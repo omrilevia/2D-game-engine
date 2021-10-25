@@ -1,25 +1,18 @@
 package com.omri.engine;
 
-import org.lwjgl.*;
-import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
-import org.lwjgl.system.*;
-
-import com.omri.scenes.LevelEditorScene;
-import com.omri.scenes.LevelScene;
-import com.omri.scenes.Scene;
-
-import java.nio.*;
-
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
+
+import com.omri.renderer.DebugDraw;
+import com.omri.scenes.LevelEditorScene;
+import com.omri.scenes.LevelScene;
+import com.omri.scenes.Scene;
 
 public class Window {
 	private int width, height;
@@ -99,10 +92,13 @@ public class Window {
 			// poll events
 			glfwPollEvents();
 			
+			DebugDraw.beginFrame();
+			
 			glClearColor(r, g, b, a);
 			glClear(GL_COLOR_BUFFER_BIT);
 			
 			if(dt >= 0)
+				DebugDraw.draw();
 				currentScene.update(dt);
 			
 			
