@@ -113,11 +113,11 @@ public class DebugDraw {
 	
 	public static void addLine2D(Vector2f from, Vector2f to) {
 		//TODO: add constants for common colors
-		addLine2D(from, to, new Vector3f(0,1,0), 2);
+		addLine2D(from, to, new Vector3f(0,1,0), 1);
 	}
 	
 	public static void addLine2D(Vector2f from, Vector2f to, Vector3f color) {
-		addLine2D(from, to, color, 1);
+		addLine2D(from, to, color, 2);
 	}
 	
 	public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
