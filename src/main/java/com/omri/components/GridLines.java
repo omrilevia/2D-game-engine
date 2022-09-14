@@ -33,10 +33,7 @@ public class GridLines extends  Component{
 
             int x = firstX + (Settings.GRID_WIDTH * i);
             int y = firstY + (Settings.GRID_HEIGHT * i);
-            System.out.print("X: " + x + " ");
 
-            System.out.print("Y: " + y + " ");
-            System.out.println();
             if(i < numVtLines){
                 DebugDraw.addLine2D(new Vector2f(x, firstY), new Vector2f(x, firstY + height), color);
             }
@@ -45,6 +42,6 @@ public class GridLines extends  Component{
                 DebugDraw.addLine2D(new Vector2f(firstX, y), new Vector2f(firstX + width, y), color);
             }
         }
-        System.out.println();
+
     }
 }

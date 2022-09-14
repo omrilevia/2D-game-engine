@@ -107,7 +107,7 @@ public class LevelEditorScene extends Scene{
 				GameObject object = Prefabs.generateSpriteObject(sprite, 32, 32);
 				levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
 				// attach to mouse cursor
-				mouseControls.pickupObject(object);
+				//mouseControls.pickupObject(object);
 				
 			}
 			ImGui.popID();
