@@ -3,7 +3,6 @@ package com.omri.scenes;
 import com.omri.components.*;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import org.joml.Vector4f;
 
 import com.omri.engine.Camera;
 import com.omri.engine.GameObject;
@@ -71,15 +70,20 @@ public class LevelEditorScene extends Scene{
 	}
 	
 	float t = 0.0f;
+	float x = 0.0f;
+	float y = 0.0f;
 	@Override
 	public void update(float dt) {
 		levelEditorStuff.update(dt);
 		
-
+		DebugDraw.addBox2D(new Vector2f(400, 200), new Vector2f(64, 32), t, new Vector3f(0, 1, 0), 2);
+		DebugDraw.addCircle(new Vector2f(x, y), 64, new Vector3f(0, 0, 1), 2);
+		x += 50.0*dt;
+		y += 50.0*dt;
 		for(GameObject go : this.gameObjects) {
 			go.update(dt);
 		}
-		
+		t += 40.0f * dt;
 		this.renderer.render();
 	}
 	
