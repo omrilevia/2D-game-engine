@@ -5,6 +5,7 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+import com.omri.renderer.Framebuffer;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -14,11 +15,14 @@ import com.omri.scenes.LevelEditorScene;
 import com.omri.scenes.LevelScene;
 import com.omri.scenes.Scene;
 
+import java.awt.*;
+
 public class Window {
 	private int width, height;
 	private String title;
 	private static Window window = null;
 	private long glfwWindow;
+	private Framebuffer framebuffer;
 	
 	private static Scene currentScene;
 	
@@ -96,11 +100,15 @@ public class Window {
 			
 			glClearColor(r, g, b, a);
 			glClear(GL_COLOR_BUFFER_BIT);
-			
-			if(dt >= 0)
+
+			//this.framebuffer.bind();
+
+			if (dt >= 0) {
 				DebugDraw.draw();
 				currentScene.update(dt);
-			
+			}
+
+			//this.framebuffer.unbind();
 			
 			this.imGuiLayer.update(dt, currentScene);
 			glfwSwapBuffers(glfwWindow);
@@ -166,6 +174,9 @@ public class Window {
 		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 		this.imGuiLayer = new ImGuiLayer(glfwWindow);
 		this.imGuiLayer.initImGui();
+
+		this.framebuffer = new Framebuffer(1920, 1080);
+
 		Window.changeScene(0);
 		
 	}

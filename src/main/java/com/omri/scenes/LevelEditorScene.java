@@ -25,7 +25,7 @@ public class LevelEditorScene extends Scene{
 	@Override
 	public void init() {
 		levelEditorStuff.addComponent(new MouseControls());
-		levelEditorStuff.addComponent(new GridLines());
+
 		loadResources();
 		this.camera = new Camera(new Vector2f(-250,0));
 		sprites = AssetPool.getSpriteSheet("assets/images/spritesheets/decorationsAndBlocks.png");
