@@ -32,9 +32,9 @@ public class LevelEditorScene extends Scene{
 		//DebugDraw.addLine2D(new Vector2f(0, 0), new Vector2f(800, 800), new Vector3f(1,0, 0), 1200);
 		//DebugDraw.addLine2D(new Vector2f(0, 0), new Vector2f(800, 800), new Vector3f(1,0, 0), 1200);
 		if(levelLoaded) {
-			this.activeGameObject = gameObjects.get(0);
-			//this.activeGameObject.addComponent(new RigidBody());
-			return;
+			if (gameObjects.size() > 0) {
+				this.activeGameObject = gameObjects.get(0);
+			}
 		}
 		
 //		SpriteRenderer obj1Renderer = new SpriteRenderer();
