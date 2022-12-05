@@ -8,6 +8,7 @@ com\omri\components\MouseControls.class
 com\omri\engine\GameObjectDeserializer.class
 com\omri\renderer\Texture.class
 com\omri\engine\MouseListener.class
+com\omri\renderer\Framebuffer.class
 com\omri\engine\KeyListener.class
 com\omri\scenes\LevelEditorScene.class
 com\omri\renderer\Renderer.class
@@ -18,6 +19,7 @@ com\omri\components\Sprite.class
 com\omri\engine\ImGuiLayer.class
 com\omri\components\ComponentDeserializer.class
 com\omri\engine\Transform.class
+com\omri\util\JMath.class
 com\omri\renderer\Shader.class
 com\omri\engine\ImGuiLayer$1.class
 com\omri\renderer\RenderBatch.class

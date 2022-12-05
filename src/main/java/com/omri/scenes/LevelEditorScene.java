@@ -66,7 +66,15 @@ public class LevelEditorScene extends Scene{
 		AssetPool.getTexture("assets/images/blendImage2.png");
 		AssetPool.addSpriteSheet("assets/images/spritesheets/decorationsAndBlocks.png", 
 				new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/decorationsAndBlocks.png"), 16, 16, 81, 0));
-		
+
+		for (GameObject g: gameObjects) {
+			if (g.getComponent(SpriteRenderer.class) != null) {
+				SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
+				if (spr.getTexture() != null) {
+					spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
+				}
+			}
+		}
 	}
 	
 	float t = 0.0f;
@@ -76,8 +84,8 @@ public class LevelEditorScene extends Scene{
 	public void update(float dt) {
 		levelEditorStuff.update(dt);
 		
-		DebugDraw.addBox2D(new Vector2f(400, 200), new Vector2f(64, 32), t, new Vector3f(0, 1, 0), 2);
-		DebugDraw.addCircle(new Vector2f(x, y), 64, new Vector3f(0, 0, 1), 2);
+		//DebugDraw.addBox2D(new Vector2f(400, 200), new Vector2f(64, 32), t, new Vector3f(0, 1, 0), 2);
+		//DebugDraw.addCircle(new Vector2f(x, y), 64, new Vector3f(0, 0, 1), 2);
 		x += 50.0*dt;
 		y += 50.0*dt;
 		for(GameObject go : this.gameObjects) {

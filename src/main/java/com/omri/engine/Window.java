@@ -92,8 +92,6 @@ public class Window {
 		float dt = -1.0f;
 		
 		while(!glfwWindowShouldClose(glfwWindow)) {
-			//System.out.println(1.0/dt);
-			// poll events
 			glfwPollEvents();
 			
 			DebugDraw.beginFrame();
@@ -108,7 +106,7 @@ public class Window {
 				currentScene.update(dt);
 			}
 
-			//this.framebuffer.unbind();
+			this.framebuffer.unbind();
 			
 			this.imGuiLayer.update(dt, currentScene);
 			glfwSwapBuffers(glfwWindow);

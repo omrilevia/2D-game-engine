@@ -1,33 +1,34 @@
 package com.omri.engine;
-import static org.lwjgl.glfw.GLFW.*;
-
 import com.omri.scenes.Scene;
 
 import imgui.ImFontAtlas;
 import imgui.ImFontConfig;
 import imgui.ImGui;
-import imgui.ImGuiFreeType;
 import imgui.ImGuiIO;
-import imgui.callbacks.ImStrConsumer;
-import imgui.callbacks.ImStrSupplier;
-import imgui.enums.ImGuiBackendFlags;
-import imgui.enums.ImGuiConfigFlags;
-import imgui.enums.ImGuiKey;
-import imgui.enums.ImGuiMouseCursor;
+import imgui.callback.ImStrConsumer;
+import imgui.callback.ImStrSupplier;
+import imgui.flag.*;
 import imgui.gl3.ImGuiImplGl3;
+import imgui.type.ImBoolean;
+
+import static org.lwjgl.glfw.GLFW.*;
 
 public class ImGuiLayer {
-	private long glfwWindow;
-	// Mouse cursors provided by GLFW
+
+    private long glfwWindow;
+
+    // Mouse cursors provided by GLFW
     private final long[] mouseCursors = new long[ImGuiMouseCursor.COUNT];
 
     // LWJGL3 renderer (SHOULD be initialized)
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
-    
-	public ImGuiLayer(long glfwWindow) {
-		this.glfwWindow = glfwWindow;
-	}
-	public void initImGui() {
+
+    public ImGuiLayer(long glfwWindow) {
+        this.glfwWindow = glfwWindow;
+    }
+
+    // Initialize Dear ImGui.
+    public void initImGui() {
         // IMPORTANT!!
         // This line is critical for Dear ImGui to work.
         ImGui.createContext();
@@ -38,6 +39,7 @@ public class ImGuiLayer {
 
         io.setIniFilename("imgui.ini"); // We don't want to save .ini file
         io.setConfigFlags(ImGuiConfigFlags.NavEnableKeyboard); // Navigation with keyboard
+        io.setConfigFlags(ImGuiConfigFlags.DockingEnable);
         io.setBackendFlags(ImGuiBackendFlags.HasMouseCursors); // Mouse cursors to display while resizing windows etc.
         io.setBackendPlatformName("imgui_java_impl_glfw");
 
@@ -94,9 +96,9 @@ public class ImGuiLayer {
             io.setKeyShift(io.getKeysDown(GLFW_KEY_LEFT_SHIFT) || io.getKeysDown(GLFW_KEY_RIGHT_SHIFT));
             io.setKeyAlt(io.getKeysDown(GLFW_KEY_LEFT_ALT) || io.getKeysDown(GLFW_KEY_RIGHT_ALT));
             io.setKeySuper(io.getKeysDown(GLFW_KEY_LEFT_SUPER) || io.getKeysDown(GLFW_KEY_RIGHT_SUPER));
-            
-            if(!io.getWantCaptureKeyboard()) {
-            	KeyListener.keyCallback(w, key, scancode, action, mods);
+
+            if (!io.getWantCaptureKeyboard()) {
+                KeyListener.keyCallback(w, key, scancode, action, mods);
             }
         });
 
@@ -120,9 +122,9 @@ public class ImGuiLayer {
             if (!io.getWantCaptureMouse() && mouseDown[1]) {
                 ImGui.setWindowFocus(null);
             }
-            
-            if(!io.getWantCaptureMouse()) {
-            	MouseListener.mouseButtonCallback(w, button, action, mods);
+
+            if (!io.getWantCaptureMouse()) {
+                MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
 
@@ -158,49 +160,46 @@ public class ImGuiLayer {
         final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
         // Glyphs could be added per-font as well as per config used globally like here
-        fontConfig.setGlyphRanges(fontAtlas.getGlyphRangesCyrillic());
+        fontConfig.setGlyphRanges(fontAtlas.getGlyphRangesDefault());
 
-        
+        // Fonts merge example
         fontConfig.setPixelSnapH(true);
-
-        fontAtlas.addFontFromFileTTF("assets/Fonts/SEGOEUI.ttf", 12, fontConfig);
-
-        
-        fontConfig.setPixelSnapH(false);
-
-        
+        fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf", 32, fontConfig);
 
         fontConfig.destroy(); // After all fonts were added we don't need this config more
 
         // ------------------------------------------------------------
         // Use freetype instead of stb_truetype to build a fonts texture
-        ImGuiFreeType.buildFontAtlas(fontAtlas, ImGuiFreeType.RasterizerFlags.LightHinting);
+
+        //ImGuiFreeType.buildFontAtlas(fontAtlas, ImGuiFreeType.RasterizerFlags.LightHinting);
+        fontAtlas.build();
 
         // Method initializes LWJGL3 renderer.
         // This method SHOULD be called after you've initialized your ImGui configuration (fonts and so on).
         // ImGui context should be created as well.
         imGuiGl3.init("#version 330 core");
     }
-	
-	public void update(float dt, Scene currentScene) {
-		startFrame(dt);
+
+    public void update(float dt, Scene currentScene) {
+        startFrame(dt);
 
         // Any Dear ImGui code SHOULD go between ImGui.newFrame()/ImGui.render() methods
         ImGui.newFrame();
+        setupDockspace();
         currentScene.sceneImgui();
         ImGui.showDemoWindow();
+        ImGui.end();
         ImGui.render();
 
         endFrame();
-	}
-	
-    private void startFrame(final float deltaTime) {
-        // Set the clear color and clear the window
-    	float[] winWidth = {Window.getWidth()};
-    	float[] winHeight = {Window.getHeight()};
-    	double[] mousePosX = {0};
-    	double[] mousePosY = {0};
+    }
 
+    private void startFrame(final float deltaTime) {
+        // Get window properties and mouse position
+        float[] winWidth = {Window.getWidth()};
+        float[] winHeight = {Window.getHeight()};
+        double[] mousePosX = {0};
+        double[] mousePosY = {0};
         glfwGetCursorPos(glfwWindow, mousePosX, mousePosY);
 
         // We SHOULD call those methods to update Dear ImGui state for the current frame
@@ -219,14 +218,31 @@ public class ImGuiLayer {
     private void endFrame() {
         // After Dear ImGui prepared a draw data, we use it in the LWJGL3 renderer.
         // At that moment ImGui will be rendered to the current OpenGL context.
-        imGuiGl3.render(ImGui.getDrawData());
-
+        imGuiGl3.renderDrawData(ImGui.getDrawData());
     }
 
     // If you want to clean a room after yourself - do it by yourself
     private void destroyImGui() {
         imGuiGl3.dispose();
         ImGui.destroyContext();
+    }
+
+    private void setupDockspace() {
+        int windowFlags = ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoDocking;
+
+        ImGui.setNextWindowPos(0.0f, 0.0f, ImGuiCond.Always);
+        ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight());
+        ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
+        ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
+        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse |
+                ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
+                ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
+
+        ImGui.begin("Dockspace Demo", new ImBoolean(true), windowFlags);
+        ImGui.popStyleVar(2);
+
+        // Dockspace
+        ImGui.dockSpace(ImGui.getID("Dockspace"));
     }
 }
 
